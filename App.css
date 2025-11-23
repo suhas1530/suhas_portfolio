@@ -1,0 +1,249 @@
+/* -------------------------------------------------------
+   RESET + GLOBAL
+-------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+  background: #202020;
+  color: #e6eef8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------
+   THEME COLOR TOKENS
+-------------------------------------------------------- */
+:root {
+  --bg-900: #202020;
+  --bg-800: #2a2a2a;
+  --panel: #171717;
+
+  --neon-1: #ffc600;
+  --neon-2: #ff4200;
+  --accent: #59a6ff;
+
+  --muted: #9aa0a6;
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
+/* -------------------------------------------------------
+   AUTO-SLIDER ANIMATION (ADDED)
+-------------------------------------------------------- */
+
+@keyframes slideProject {
+  0% { transform: translateX(0%); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Slider Track */
+.slider-track {
+  display: flex;
+  width: 400%;
+  animation: slideProject 16s ease-in-out infinite;
+}
+
+/* Single Slide Item */
+.slider-item {
+  min-width: 100%;
+  padding: 0 1rem;
+}
+
+/* -------------------------------------------------------
+   ANIMATIONS (Uploaded Theme)
+-------------------------------------------------------- */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes kenburn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes service-dot_1 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------------------
+   ANIMATION UTILITIES
+-------------------------------------------------------- */
+.animate-fadeInUp { animation: fadeInUp 0.9s ease-out both; }
+.animate-fadeInLeft { animation: fadeInLeft 0.9s ease-out both; }
+.animate-fadeInRight { animation: fadeInRight 0.9s ease-out both; }
+.animate-floatSoft { animation: floatSoft 6s ease-in-out infinite; }
+.animate-kenburn { animation: kenburn 16s ease-in-out infinite alternate; }
+.animate-spinner { animation: spinner-border .8s linear infinite; }
+.animate-service-dot { animation: service-dot_1 3s linear infinite; }
+.animate-slideDown { animation: slideDown 0.5s ease-out both; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* -------------------------------------------------------
+   CARDS, BUTTONS, TEXT
+-------------------------------------------------------- */
+.gradient-text,
+.theme-gradient {
+  background: linear-gradient(90deg, var(--neon-1), var(--neon-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-theme {
+  background: linear-gradient(90deg, var(--neon-1), var(--neon-2));
+  color: #111;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(255, 80, 20, 0.12);
+  transition: 0.2s ease;
+}
+.btn-theme:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(255, 80, 20, 0.2);
+}
+
+.btn-outline-theme {
+  border: 1px solid rgba(255, 198, 0, 0.25);
+  color: var(--neon-1);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  transition: 0.2s ease;
+}
+.btn-outline-theme:hover {
+  background: rgba(255, 198, 0, 0.1);
+  color: white;
+}
+
+.card-theme {
+  background: linear-gradient(180deg, #1b1b1b, #222);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: #e6eef8;
+}
+
+.card-hover {
+  transition: 0.28s cubic-bezier(.2, .9, .2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* -------------------------------------------------------
+   NAVIGATION
+-------------------------------------------------------- */
+.nav-blur,
+.theme-nav {
+  backdrop-filter: blur(6px);
+  background: rgba(15, 15, 15, 0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* -------------------------------------------------------
+   UTILITIES
+-------------------------------------------------------- */
+.transition-all { transition: all 0.3s ease; }
+.no-select { user-select: none; }
+
+/* -------------------------------------------------------
+   SCROLLBAR
+-------------------------------------------------------- */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--neon-2);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-1);
+}
+
+/* -------------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------------- */
+@media (max-width: 768px) {
+  .animate-floatSoft {
+    animation-duration: 8s;
+  }
+}
+
+/* -------------------------------------------------------
+   PRINT
+-------------------------------------------------------- */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+}
